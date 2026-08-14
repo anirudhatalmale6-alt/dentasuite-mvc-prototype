@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Settings · DentaSuite</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="assets/css/site.css" rel="stylesheet">
+</head>
+<body>
+<div class="proto-ribbon no-print">
+  <i class="bi bi-eye"></i>
+  <span>Interface prototype — <strong>Views/Admin/Settings.cshtml</strong></span>
+  <span class="d-none d-md-inline">·</span>
+  <a href="index.html" class="d-none d-md-inline">screen map</a>
+</div>
+
+<div class="backdrop-x"></div>
+<div class="app">
+
+  <!-- ============ _Layout.cshtml : sidebar navigation ============ -->
+  <aside class="sidebar">
+    <a class="brand" href="dashboard-admin.html" data-role-home>
+      <span class="logo"><i class="bi bi-hexagon-fill"></i></span>
+      <span>DentaSuite<small>Clinic Suite</small></span>
+    </a>
+    <div class="nav-group" data-roles="Admin,Dentist,Receptionist">
+<div class="nav-group-title">Overview</div>
+<a class="nav-link-x" href="dashboard-admin.html" data-roles="Admin"><i class="bi bi-grid-1x2"></i><span>Dashboard</span></a>
+<a class="nav-link-x" href="dashboard-dentist.html" data-roles="Dentist"><i class="bi bi-sun"></i><span>My Day</span></a>
+<a class="nav-link-x" href="dashboard-reception.html" data-roles="Receptionist"><i class="bi bi-door-open"></i><span>Front Desk</span></a>
+</div>
+<div class="nav-group" data-roles="Admin,Dentist,Receptionist">
+<div class="nav-group-title">Patients</div>
+<a class="nav-link-x" href="patients-index.html" data-roles="Admin,Dentist,Receptionist"><i class="bi bi-people"></i><span>All Patients</span></a>
+<a class="nav-link-x" href="patients-create.html" data-roles="Admin,Receptionist"><i class="bi bi-person-plus"></i><span>Register Patient</span></a>
+<a class="nav-link-x" href="patients-details.html" data-roles="Admin,Dentist,Receptionist"><i class="bi bi-folder2-open"></i><span>Patient Record</span></a>
+</div>
+<div class="nav-group" data-roles="Admin,Dentist,Receptionist">
+<div class="nav-group-title">Appointments</div>
+<a class="nav-link-x" href="appointments-calendar.html" data-roles="Admin,Dentist,Receptionist"><i class="bi bi-calendar3"></i><span>Calendar</span></a>
+<a class="nav-link-x" href="appointments-index.html" data-roles="Admin,Dentist,Receptionist"><i class="bi bi-list-check"></i><span>Appointment List</span></a>
+<a class="nav-link-x" href="appointments-create.html" data-roles="Admin,Receptionist"><i class="bi bi-calendar-plus"></i><span>Book Appointment</span></a>
+<a class="nav-link-x" href="appointments-reschedule.html" data-roles="Admin,Dentist,Receptionist"><i class="bi bi-arrow-left-right"></i><span>Reschedule</span></a>
+<a class="nav-link-x" href="appointments-waitlist.html" data-roles="Admin,Receptionist"><i class="bi bi-hourglass-split"></i><span>Waiting List</span><span class="badge rounded-pill text-bg-light">6</span></a>
+</div>
+<div class="nav-group" data-roles="Admin,Dentist">
+<div class="nav-group-title">Clinical</div>
+<a class="nav-link-x" href="treatments-chart.html" data-roles="Admin,Dentist"><i class="bi bi-diagram-3"></i><span>Dental Chart</span></a>
+<a class="nav-link-x" href="treatments-plan.html" data-roles="Admin,Dentist"><i class="bi bi-clipboard2-pulse"></i><span>Treatment Plan</span></a>
+<a class="nav-link-x" href="treatments-procedures.html" data-roles="Admin,Dentist"><i class="bi bi-journal-medical"></i><span>Procedure Catalogue</span></a>
+<a class="nav-link-x" href="treatments-prescriptions.html" data-roles="Admin,Dentist"><i class="bi bi-capsule"></i><span>Prescriptions</span></a>
+</div>
+<div class="nav-group" data-roles="Admin,Receptionist">
+<div class="nav-group-title">Billing</div>
+<a class="nav-link-x" href="billing-invoices.html" data-roles="Admin,Receptionist"><i class="bi bi-receipt"></i><span>Invoices</span></a>
+<a class="nav-link-x" href="billing-invoice-create.html" data-roles="Admin,Receptionist"><i class="bi bi-file-earmark-plus"></i><span>New Invoice</span></a>
+<a class="nav-link-x" href="billing-payments.html" data-roles="Admin,Receptionist"><i class="bi bi-credit-card"></i><span>Payments</span></a>
+<a class="nav-link-x" href="billing-claims.html" data-roles="Admin,Receptionist"><i class="bi bi-shield-check"></i><span>Insurance Claims</span><span class="badge rounded-pill text-bg-light">3</span></a>
+</div>
+<div class="nav-group" data-roles="Admin">
+<div class="nav-group-title">Insights</div>
+<a class="nav-link-x" href="reports-index.html" data-roles="Admin"><i class="bi bi-bar-chart-line"></i><span>Reports</span></a>
+</div>
+<div class="nav-group" data-roles="Admin">
+<div class="nav-group-title">Administration</div>
+<a class="nav-link-x" href="admin-users.html" data-roles="Admin"><i class="bi bi-person-badge"></i><span>Users & Roles</span></a>
+<a class="nav-link-x" href="admin-clinic.html" data-roles="Admin"><i class="bi bi-hospital"></i><span>Clinic & Chairs</span></a>
+<a class="nav-link-x active" href="admin-settings.html" data-roles="Admin"><i class="bi bi-gear"></i><span>Settings</span></a>
+</div>
+    <div class="sidebar-foot">
+      <a href="index.html"><i class="bi bi-diagram-2 me-1"></i>Screen map</a>
+      <a href="account-login.html"><i class="bi bi-box-arrow-right me-1"></i>Sign out</a>
+      <div class="mt-2 opacity-75">v0.9 · prototype</div>
+    </div>
+  </aside>
+
+  <div class="main">
+    <!-- ============ _Layout.cshtml : top bar ============ -->
+    <header class="topbar no-print">
+      <button class="icon-btn d-lg-none" data-toggle-nav aria-label="Menu"><i class="bi bi-list"></i></button>
+      <div class="searchbox d-none d-sm-block">
+        <i class="bi bi-search"></i>
+        <input type="search" placeholder="Search patients, invoices, appointments…" aria-label="Search">
+      </div>
+      <div class="ms-auto d-flex align-items-center gap-2">
+        <a class="icon-btn d-none d-md-grid" href="appointments-create.html" title="Book appointment"><i class="bi bi-calendar-plus"></i></a>
+        <button class="icon-btn" title="Notifications" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+          <i class="bi bi-bell"></i><span class="dot"></span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end" style="width:290px">
+          <li class="px-2 py-1 small text-muted fw-semibold">Notifications</li>
+          <li><a class="dropdown-item" href="appointments-waitlist.html"><i class="bi bi-hourglass-split text-warning me-2"></i>6 patients on the waiting list</a></li>
+          <li><a class="dropdown-item" href="billing-claims.html"><i class="bi bi-shield-exclamation text-danger me-2"></i>3 insurance claims rejected</a></li>
+          <li><a class="dropdown-item" href="billing-invoices.html"><i class="bi bi-receipt text-primary me-2"></i>INV-2451 is 30 days overdue</a></li>
+        </ul>
+
+        <div class="dropdown">
+          <button class="userchip" data-bs-toggle="dropdown">
+            <span class="avatar" data-role-initials>AO</span>
+            <span class="text-start d-none d-sm-block lh-sm">
+              <span class="d-block fw-semibold" style="font-size:13px" data-role-name>Dr. Amara Okafor</span>
+              <span class="d-block text-muted" style="font-size:11.5px" data-role-title>Practice Administrator</span>
+            </span>
+            <i class="bi bi-chevron-down text-muted ms-1" style="font-size:11px"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" style="width:250px">
+            <li class="px-2 pt-1 pb-2 small text-muted">
+              Prototype: switch role to see how the menus and screens change.
+            </li>
+            <li><a class="dropdown-item" href="#" data-set-role="Admin" data-go="home"><i class="bi bi-shield-lock me-2 text-secondary"></i>Admin</a></li>
+            <li><a class="dropdown-item" href="#" data-set-role="Dentist" data-go="home"><i class="bi bi-person-vcard me-2 text-secondary"></i>Dentist</a></li>
+            <li><a class="dropdown-item" href="#" data-set-role="Receptionist" data-go="home"><i class="bi bi-headset me-2 text-secondary"></i>Receptionist</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="admin-settings.html"><i class="bi bi-gear me-2 text-secondary"></i>Settings</a></li>
+            <li><a class="dropdown-item" href="account-login.html"><i class="bi bi-box-arrow-right me-2 text-secondary"></i>Sign out</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============ @RenderBody() ============ -->
+    <main class="page">
+<div class="page-head">
+  <div>
+    <ol class="breadcrumb"><li class="breadcrumb-item"><a href="dashboard-admin.html">Home</a></li><li class="breadcrumb-item active" aria-current="page">Administration</li><li class="breadcrumb-item active" aria-current="page">Settings</li></ol>
+    <h1>Settings</h1>
+    <p class="sub">Branding, reminders, billing rules and integrations</p>
+  </div>
+  <div class="d-flex gap-2 flex-wrap no-print"><button class="btn btn-soft">Discard</button><button class="btn btn-brand">Save changes</button></div>
+</div>
+<div class="row g-3">
+  <div class="col-lg-3">
+    <div class="card-x p-2">
+      <a class="nav-link-x active" href="#brand" data-bs-toggle="tab" style="color:var(--ink);background:var(--brand-50);box-shadow:none"><i class="bi bi-palette"></i>Branding</a>
+      <a class="nav-link-x" href="#remind" data-bs-toggle="tab" style="color:var(--ink-2)"><i class="bi bi-bell"></i>Reminders</a>
+      <a class="nav-link-x" href="#bill" data-bs-toggle="tab" style="color:var(--ink-2)"><i class="bi bi-receipt"></i>Billing</a>
+      <a class="nav-link-x" href="#integr" data-bs-toggle="tab" style="color:var(--ink-2)"><i class="bi bi-plug"></i>Integrations</a>
+    </div>
+  </div>
+  <div class="col-lg-9">
+    <div class="tab-content">
+      <div class="tab-pane fade show active" id="brand">
+        <div class="card-x "><div class="card-x-head">
+    <div><h2>Branding</h2></div>
+    <div class="d-flex gap-2 align-items-center"></div>
+  </div><div class="card-x-body">
+          <div class="row">
+            <div class="col-md-6 mb-3"><label class="form-label">Clinic name</label><input type="text" class="form-control" placeholder="" value="Bright Smile Dental"></div>
+            <div class="col-md-6 mb-3"><label class="form-label">Trading location</label><input type="text" class="form-control" placeholder="" value="Riverside"></div>
+          </div>
+          <div class="section-title">Theme</div>
+          <p class="text-muted small">The whole interface is driven by six CSS variables — change these and every screen re-skins.</p>
+          <div class="row g-3">
+            <div class="col-6 col-md-3"><label class="form-label">Primary</label><input type="color" class="form-control form-control-color w-100" value="#0e8f84"></div>
+            <div class="col-6 col-md-3"><label class="form-label">Sidebar</label><input type="color" class="form-control form-control-color w-100" value="#0d1b2a"></div>
+            <div class="col-6 col-md-3"><label class="form-label">Page background</label><input type="color" class="form-control form-control-color w-100" value="#f4f7fa"></div>
+            <div class="col-6 col-md-3"><label class="form-label">Corner radius</label><select class="form-select"><option>Rounded (14px)</option><option>Soft (8px)</option><option>Square (4px)</option></select></div>
+          </div>
+          <div class="section-title">Logo</div>
+          <div class="d-flex align-items-center gap-3">
+            <span class="logo" style="width:52px;height:52px;border-radius:15px;background:linear-gradient(135deg,var(--brand-500),var(--brand-700));display:grid;place-items:center;color:#fff;font-size:23px"><i class="bi bi-hexagon-fill"></i></span>
+            <button class="btn btn-soft btn-sm">Upload logo</button>
+            <span class="text-muted small">SVG or PNG, min 128×128</span>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="tab-pane fade" id="remind">
+        <div class="card-x "><div class="card-x-head">
+    <div><h2>Appointment reminders</h2></div>
+    <div class="d-flex gap-2 align-items-center"></div>
+  </div><div class="card-x-body">
+          <div class="row">
+            <div class="col-md-6 mb-3"><label class="form-label">First reminder</label><select class="form-select"><option>48 hours before</option><option>72 hours before</option><option>24 hours before</option></select></div>
+            <div class="col-md-6 mb-3"><label class="form-label">Second reminder</label><select class="form-select"><option>2 hours before</option><option>Morning of</option><option>None</option></select></div>
+            <div class="col-md-6 mb-3"><label class="form-label">Channel</label><select class="form-select"><option>SMS then email</option><option>SMS only</option><option>Email only</option><option>WhatsApp</option></select></div>
+            <div class="col-md-6 mb-3"><label class="form-label">Reply handling</label><select class="form-select"><option>Allow 'C' to confirm</option><option>No replies</option><option>Route to front desk</option></select></div>
+            <div class="col-12 mb-3"><label class="form-label">SMS template</label><textarea class="form-control" rows="3" placeholder="">Hi {PatientFirstName}, this is a reminder of your appointment at Bright Smile Dental on {AppointmentDate} at {AppointmentTime}. Reply C to confirm.</textarea><div class="form-text">Merge fields are resolved server-side.</div></div>
+          </div>
+          <div class="form-check form-switch"><input class="form-check-input" type="checkbox" checked id="s1"><label class="form-check-label small" for="s1">Send recall reminders when a patient becomes due</label></div>
+          <div class="form-check form-switch"><input class="form-check-input" type="checkbox" checked id="s2"><label class="form-check-label small" for="s2">Notify front desk of unconfirmed appointments each morning</label></div>
+        </div></div>
+      </div>
+
+      <div class="tab-pane fade" id="bill">
+        <div class="card-x "><div class="card-x-head">
+    <div><h2>Billing rules</h2></div>
+    <div class="d-flex gap-2 align-items-center"></div>
+  </div><div class="card-x-body">
+          <div class="row">
+            <div class="col-md-4 mb-3"><label class="form-label">Currency</label><select class="form-select"><option>USD ($)</option><option>EUR (€)</option><option>GBP (£)</option><option>AUD ($)</option></select></div>
+            <div class="col-md-4 mb-3"><label class="form-label">Tax rate</label><input type="text" class="form-control" placeholder="" value="0.00 %"></div>
+            <div class="col-md-4 mb-3"><label class="form-label">Payment terms</label><select class="form-select"><option>Due on receipt</option><option>Net 14</option><option>Net 30</option></select></div>
+            <div class="col-md-4 mb-3"><label class="form-label">Invoice number format</label><input type="text" class="form-control" placeholder="" value="INV-####"></div>
+            <div class="col-md-4 mb-3"><label class="form-label">Next invoice number</label><input type="text" class="form-control" placeholder="" value="2479"></div>
+            <div class="col-md-4 mb-3"><label class="form-label">Late fee after</label><select class="form-select"><option>30 days</option><option>45 days</option><option>60 days</option><option>Never</option></select></div>
+          </div>
+          <div class="form-check form-switch"><input class="form-check-input" type="checkbox" checked id="b1"><label class="form-check-label small" for="b1">Allow part payments and payment plans</label></div>
+          <div class="form-check form-switch"><input class="form-check-input" type="checkbox" id="b2"><label class="form-check-label small" for="b2">Require a deposit for appointments over $500</label></div>
+        </div></div>
+      </div>
+
+      <div class="tab-pane fade" id="integr">
+        <div class="card-x "><div class="card-x-head">
+    <div><h2>Integrations</h2><p class="sub">Each row is a stub — the view only renders whatever your service layer reports</p></div>
+    <div class="d-flex gap-2 align-items-center flex-wrap"></div>
+  </div><div class="table-responsive">
+  <table class="table table-x ">
+    <thead><tr><th>Service</th><th>Purpose</th><th>Status</th><th></th></tr></thead>
+    <tbody><tr><td class="t-main">SMS gateway</td><td class="t-sub">Appointment reminders and confirmations</td><td><span class="pill pill-green"><i class="bi bi-circle-fill"></i>Connected</span></td><td class="text-end"><button class="btn btn-soft btn-sm">Configure</button></td></tr><tr><td class="t-main">Card terminal</td><td class="t-sub">In-clinic card payments</td><td><span class="pill pill-green"><i class="bi bi-circle-fill"></i>Connected</span></td><td class="text-end"><button class="btn btn-soft btn-sm">Configure</button></td></tr><tr><td class="t-main">Insurance clearing house</td><td class="t-sub">Electronic claim submission</td><td><span class="pill pill-gray"><i class="bi bi-circle-fill"></i>Not connected</span></td><td class="text-end"><button class="btn btn-soft btn-sm">Connect</button></td></tr><tr><td class="t-main">Imaging bridge</td><td class="t-sub">Radiograph capture into the patient file</td><td><span class="pill pill-gray"><i class="bi bi-circle-fill"></i>Not connected</span></td><td class="text-end"><button class="btn btn-soft btn-sm">Connect</button></td></tr><tr><td class="t-main">Accounting export</td><td class="t-sub">Nightly journal export</td><td><span class="pill pill-red"><i class="bi bi-circle-fill"></i>Error</span></td><td class="text-end"><button class="btn btn-soft btn-sm">Fix</button></td></tr></tbody>
+  </table>
+</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    </main>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

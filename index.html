@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Screen map · DentaSuite</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="assets/css/site.css" rel="stylesheet">
+</head>
+<body>
+
+<div style="background:linear-gradient(150deg,#0d1b2a 0%,#0b4f4a 60%,#0e8f84 100%);color:#fff;padding:46px 0 54px">
+  <div class="container" style="max-width:1080px">
+    <div class="d-flex align-items-center gap-3 mb-4">
+      <span class="logo" style="width:44px;height:44px;border-radius:13px;background:rgba(255,255,255,.15);display:grid;place-items:center;font-size:21px"><i class="bi bi-hexagon-fill"></i></span>
+      <div>
+        <div style="font-size:20px;font-weight:700;letter-spacing:-.02em">DentaSuite</div>
+        <div style="font-size:12px;opacity:.75;letter-spacing:.08em;text-transform:uppercase">ASP.NET MVC interface prototype</div>
+      </div>
+    </div>
+    <h1 style="color:#fff;font-size:34px;max-width:760px;line-height:1.2">Every screen your clinic runs on — menus, hierarchy and styling, ready to approve.</h1>
+    <p style="max-width:700px;opacity:.85;font-size:15px;margin-top:14px">
+      This is the interface layer only: Razor views, layout, navigation and controllers with stubbed actions.
+      No data access, no domain logic — your models and services drop straight in.
+      Click through as any of the three roles and see how the navigation and screens change.
+    </p>
+    <div class="d-flex gap-2 flex-wrap mt-4">
+      <a href="account-login.html" class="btn btn-light fw-semibold"><i class="bi bi-box-arrow-in-right me-1"></i>Start at the sign-in screen</a>
+      <a href="#map" class="btn btn-outline-light"><i class="bi bi-diagram-2 me-1"></i>See the page hierarchy</a>
+    </div>
+  </div>
+</div>
+
+<div class="container py-5" style="max-width:1080px">
+  <h2 class="mb-1">Pick a role</h2>
+  <p class="text-muted mb-4">The role you choose is remembered as you navigate — the sidebar, dashboard and in-page controls all adapt.</p>
+  
+<div class="row g-3">
+  <div class="col-md-4">
+    <a href="#" data-set-role="Admin" data-go="home" class="card-x h-100 d-block p-4 text-decoration-none">
+      <div class="ic ic-teal mb-3" style="width:46px;height:46px;border-radius:14px;display:grid;place-items:center"><i class="bi bi-shield-lock" style="font-size:20px"></i></div>
+      <div class="fw-semibold text-dark">Enter as Admin</div>
+      <div class="text-muted small mt-1">Everything: clinic KPIs, users &amp; roles, fees, reports, settings.</div>
+    </a>
+  </div>
+  <div class="col-md-4">
+    <a href="#" data-set-role="Dentist" data-go="home" class="card-x h-100 d-block p-4 text-decoration-none">
+      <div class="ic ic-purple mb-3" style="width:46px;height:46px;border-radius:14px;display:grid;place-items:center"><i class="bi bi-person-vcard" style="font-size:20px"></i></div>
+      <div class="fw-semibold text-dark">Enter as Dentist</div>
+      <div class="text-muted small mt-1">Clinical only: my day, charting, treatment plans, prescriptions.</div>
+    </a>
+  </div>
+  <div class="col-md-4">
+    <a href="#" data-set-role="Receptionist" data-go="home" class="card-x h-100 d-block p-4 text-decoration-none">
+      <div class="ic ic-blue mb-3" style="width:46px;height:46px;border-radius:14px;display:grid;place-items:center"><i class="bi bi-headset" style="font-size:20px"></i></div>
+      <div class="fw-semibold text-dark">Enter as Receptionist</div>
+      <div class="text-muted small mt-1">Front desk: arrivals, booking, waiting list, payments.</div>
+    </a>
+  </div>
+</div>
+
+  <div class="row g-3 mt-4">
+    <div class="col-md-4"><div class="card-x "><div class="card-x-body"><div class="d-flex gap-3"><i class="bi bi-columns-gap text-secondary" style="font-size:20px"></i>
+      <div><div class="fw-semibold">Clean separation</div><div class="text-muted small">Views hold markup only. Every value is a placeholder where a view-model property will go — no queries, no services, nothing to unpick.</div></div></div></div></div></div>
+    <div class="col-md-4"><div class="card-x "><div class="card-x-body"><div class="d-flex gap-3"><i class="bi bi-palette text-secondary" style="font-size:20px"></i>
+      <div><div class="fw-semibold">Skinnable</div><div class="text-muted small">Bootstrap 5 plus one stylesheet built entirely on CSS variables — change six values in <code>:root</code> and the whole suite re-skins.</div></div></div></div></div></div>
+    <div class="col-md-4"><div class="card-x "><div class="card-x-body"><div class="d-flex gap-3"><i class="bi bi-phone text-secondary" style="font-size:20px"></i>
+      <div><div class="fw-semibold">Responsive</div><div class="text-muted small">Tested at 360, 768, 1024 and 1440 px. Sidebar collapses to an off-canvas drawer, tables scroll, forms stack.</div></div></div></div></div></div>
+  </div>
+
+  <hr class="my-5">
+
+  <h2 id="map" class="mb-1">Page hierarchy</h2>
+  <p class="text-muted mb-4">Controller → action → view. Every link below is a working screen in this prototype.</p>
+  <div class="card-x "><div class="card-x-body"><div class="sitemap">
+<div class="ctrl">AccountController <code>/Views/Account/</code></div><ul>
+<li><a href="account-login.html"><i class="bi bi-arrow-right-short"></i>Login</a> <span class="text-muted">— Sign in, role selection, forgot password</span></li>
+<li><a href="error-access-denied.html"><i class="bi bi-arrow-right-short"></i>AccessDenied</a> <span class="text-muted">— Shown when a role lacks permission</span></li>
+</ul>
+<div class="ctrl">DashboardController <code>/Views/Dashboard/</code></div><ul>
+<li><a href="dashboard-admin.html"><i class="bi bi-arrow-right-short"></i>Admin</a> <span class="text-muted">— Practice KPIs, revenue, chair utilisation, alerts</span></li>
+<li><a href="dashboard-dentist.html"><i class="bi bi-arrow-right-short"></i>Dentist</a> <span class="text-muted">— My day: chair list, next patient, pending notes</span></li>
+<li><a href="dashboard-reception.html"><i class="bi bi-arrow-right-short"></i>Reception</a> <span class="text-muted">— Arrivals queue, check-in, payments due today</span></li>
+</ul>
+<div class="ctrl">PatientsController <code>/Views/Patients/</code></div><ul>
+<li><a href="patients-index.html"><i class="bi bi-arrow-right-short"></i>Index</a> <span class="text-muted">— Searchable, filterable patient register</span></li>
+<li><a href="patients-create.html"><i class="bi bi-arrow-right-short"></i>Create</a> <span class="text-muted">— Registration wizard — demographics, medical, insurance, consent</span></li>
+<li><a href="patients-details.html"><i class="bi bi-arrow-right-short"></i>Details</a> <span class="text-muted">— Full record: timeline, appointments, chart, invoices, files</span></li>
+</ul>
+<div class="ctrl">AppointmentsController <code>/Views/Appointments/</code></div><ul>
+<li><a href="appointments-calendar.html"><i class="bi bi-arrow-right-short"></i>Calendar</a> <span class="text-muted">— Week grid by chair/dentist, drag-to-book slots</span></li>
+<li><a href="appointments-index.html"><i class="bi bi-arrow-right-short"></i>Index</a> <span class="text-muted">— List view with status filters and bulk actions</span></li>
+<li><a href="appointments-create.html"><i class="bi bi-arrow-right-short"></i>Create</a> <span class="text-muted">— Booking form — patient, procedure, dentist, slot</span></li>
+<li><a href="appointments-reschedule.html"><i class="bi bi-arrow-right-short"></i>Reschedule</a> <span class="text-muted">— Move / cancel with reason and notification</span></li>
+<li><a href="appointments-waitlist.html"><i class="bi bi-arrow-right-short"></i>WaitingList</a> <span class="text-muted">— Standby patients to slot into cancellations</span></li>
+</ul>
+<div class="ctrl">TreatmentsController <code>/Views/Treatments/</code></div><ul>
+<li><a href="treatments-chart.html"><i class="bi bi-arrow-right-short"></i>Chart</a> <span class="text-muted">— Interactive odontogram + per-tooth history</span></li>
+<li><a href="treatments-plan.html"><i class="bi bi-arrow-right-short"></i>Plan</a> <span class="text-muted">— Phased treatment plan with estimate and consent</span></li>
+<li><a href="treatments-procedures.html"><i class="bi bi-arrow-right-short"></i>Procedures</a> <span class="text-muted">— Procedure / fee catalogue (ADA-style codes)</span></li>
+<li><a href="treatments-prescriptions.html"><i class="bi bi-arrow-right-short"></i>Prescriptions</a> <span class="text-muted">— Prescription pad and history</span></li>
+</ul>
+<div class="ctrl">BillingController <code>/Views/Billing/</code></div><ul>
+<li><a href="billing-invoices.html"><i class="bi bi-arrow-right-short"></i>Invoices</a> <span class="text-muted">— Invoice register with ageing and status</span></li>
+<li><a href="billing-invoice-details.html"><i class="bi bi-arrow-right-short"></i>InvoiceDetails</a> <span class="text-muted">— Printable invoice with line items and payments</span></li>
+<li><a href="billing-invoice-create.html"><i class="bi bi-arrow-right-short"></i>CreateInvoice</a> <span class="text-muted">— Build an invoice from completed procedures</span></li>
+<li><a href="billing-payments.html"><i class="bi bi-arrow-right-short"></i>Payments</a> <span class="text-muted">— Payment ledger, take payment, refunds</span></li>
+<li><a href="billing-claims.html"><i class="bi bi-arrow-right-short"></i>Claims</a> <span class="text-muted">— Insurance claim tracking and resubmission</span></li>
+</ul>
+<div class="ctrl">ReportsController <code>/Views/Reports/</code></div><ul>
+<li><a href="reports-index.html"><i class="bi bi-arrow-right-short"></i>Index</a> <span class="text-muted">— Revenue, production, no-shows, recall performance</span></li>
+</ul>
+<div class="ctrl">AdminController <code>/Views/Admin/</code></div><ul>
+<li><a href="admin-users.html"><i class="bi bi-arrow-right-short"></i>Users</a> <span class="text-muted">— Staff accounts, roles and permissions matrix</span></li>
+<li><a href="admin-clinic.html"><i class="bi bi-arrow-right-short"></i>Clinic</a> <span class="text-muted">— Locations, chairs/operatories, working hours</span></li>
+<li><a href="admin-settings.html"><i class="bi bi-arrow-right-short"></i>Settings</a> <span class="text-muted">— Branding, reminders, taxes, numbering, integrations</span></li>
+</ul>
+</div></div></div>
+
+  <p class="text-muted small mt-4 mb-0">Prototype only — all names, figures and clinical data on these screens are fictional sample content.</p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Front desk · DentaSuite</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="assets/css/site.css" rel="stylesheet">
+</head>
+<body>
+<div class="proto-ribbon no-print">
+  <i class="bi bi-eye"></i>
+  <span>Interface prototype — <strong>Views/Dashboard/Reception.cshtml</strong></span>
+  <span class="d-none d-md-inline">·</span>
+  <a href="index.html" class="d-none d-md-inline">screen map</a>
+</div>
+
+<div class="backdrop-x"></div>
+<div class="app">
+
+  <!-- ============ _Layout.cshtml : sidebar navigation ============ -->
+  <aside class="sidebar">
+    <a class="brand" href="dashboard-admin.html" data-role-home>
+      <span class="logo"><i class="bi bi-hexagon-fill"></i></span>
+      <span>DentaSuite<small>Clinic Suite</small></span>
+    </a>
+    <div class="nav-group" data-roles="Admin,Dentist,Receptionist">
+<div class="nav-group-title">Overview</div>
+<a class="nav-link-x" href="dashboard-admin.html" data-roles="Admin"><i class="bi bi-grid-1x2"></i><span>Dashboard</span></a>
+<a class="nav-link-x" href="dashboard-dentist.html" data-roles="Dentist"><i class="bi bi-sun"></i><span>My Day</span></a>
+<a class="nav-link-x active" href="dashboard-reception.html" data-roles="Receptionist"><i class="bi bi-door-open"></i><span>Front Desk</span></a>
+</div>
+<div class="nav-group" data-roles="Admin,Dentist,Receptionist">
+<div class="nav-group-title">Patients</div>
+<a class="nav-link-x" href="patients-index.html" data-roles="Admin,Dentist,Receptionist"><i class="bi bi-people"></i><span>All Patients</span></a>
+<a class="nav-link-x" href="patients-create.html" data-roles="Admin,Receptionist"><i class="bi bi-person-plus"></i><span>Register Patient</span></a>
+<a class="nav-link-x" href="patients-details.html" data-roles="Admin,Dentist,Receptionist"><i class="bi bi-folder2-open"></i><span>Patient Record</span></a>
+</div>
+<div class="nav-group" data-roles="Admin,Dentist,Receptionist">
+<div class="nav-group-title">Appointments</div>
+<a class="nav-link-x" href="appointments-calendar.html" data-roles="Admin,Dentist,Receptionist"><i class="bi bi-calendar3"></i><span>Calendar</span></a>
+<a class="nav-link-x" href="appointments-index.html" data-roles="Admin,Dentist,Receptionist"><i class="bi bi-list-check"></i><span>Appointment List</span></a>
+<a class="nav-link-x" href="appointments-create.html" data-roles="Admin,Receptionist"><i class="bi bi-calendar-plus"></i><span>Book Appointment</span></a>
+<a class="nav-link-x" href="appointments-reschedule.html" data-roles="Admin,Dentist,Receptionist"><i class="bi bi-arrow-left-right"></i><span>Reschedule</span></a>
+<a class="nav-link-x" href="appointments-waitlist.html" data-roles="Admin,Receptionist"><i class="bi bi-hourglass-split"></i><span>Waiting List</span><span class="badge rounded-pill text-bg-light">6</span></a>
+</div>
+<div class="nav-group" data-roles="Admin,Dentist">
+<div class="nav-group-title">Clinical</div>
+<a class="nav-link-x" href="treatments-chart.html" data-roles="Admin,Dentist"><i class="bi bi-diagram-3"></i><span>Dental Chart</span></a>
+<a class="nav-link-x" href="treatments-plan.html" data-roles="Admin,Dentist"><i class="bi bi-clipboard2-pulse"></i><span>Treatment Plan</span></a>
+<a class="nav-link-x" href="treatments-procedures.html" data-roles="Admin,Dentist"><i class="bi bi-journal-medical"></i><span>Procedure Catalogue</span></a>
+<a class="nav-link-x" href="treatments-prescriptions.html" data-roles="Admin,Dentist"><i class="bi bi-capsule"></i><span>Prescriptions</span></a>
+</div>
+<div class="nav-group" data-roles="Admin,Receptionist">
+<div class="nav-group-title">Billing</div>
+<a class="nav-link-x" href="billing-invoices.html" data-roles="Admin,Receptionist"><i class="bi bi-receipt"></i><span>Invoices</span></a>
+<a class="nav-link-x" href="billing-invoice-create.html" data-roles="Admin,Receptionist"><i class="bi bi-file-earmark-plus"></i><span>New Invoice</span></a>
+<a class="nav-link-x" href="billing-payments.html" data-roles="Admin,Receptionist"><i class="bi bi-credit-card"></i><span>Payments</span></a>
+<a class="nav-link-x" href="billing-claims.html" data-roles="Admin,Receptionist"><i class="bi bi-shield-check"></i><span>Insurance Claims</span><span class="badge rounded-pill text-bg-light">3</span></a>
+</div>
+<div class="nav-group" data-roles="Admin">
+<div class="nav-group-title">Insights</div>
+<a class="nav-link-x" href="reports-index.html" data-roles="Admin"><i class="bi bi-bar-chart-line"></i><span>Reports</span></a>
+</div>
+<div class="nav-group" data-roles="Admin">
+<div class="nav-group-title">Administration</div>
+<a class="nav-link-x" href="admin-users.html" data-roles="Admin"><i class="bi bi-person-badge"></i><span>Users & Roles</span></a>
+<a class="nav-link-x" href="admin-clinic.html" data-roles="Admin"><i class="bi bi-hospital"></i><span>Clinic & Chairs</span></a>
+<a class="nav-link-x" href="admin-settings.html" data-roles="Admin"><i class="bi bi-gear"></i><span>Settings</span></a>
+</div>
+    <div class="sidebar-foot">
+      <a href="index.html"><i class="bi bi-diagram-2 me-1"></i>Screen map</a>
+      <a href="account-login.html"><i class="bi bi-box-arrow-right me-1"></i>Sign out</a>
+      <div class="mt-2 opacity-75">v0.9 · prototype</div>
+    </div>
+  </aside>
+
+  <div class="main">
+    <!-- ============ _Layout.cshtml : top bar ============ -->
+    <header class="topbar no-print">
+      <button class="icon-btn d-lg-none" data-toggle-nav aria-label="Menu"><i class="bi bi-list"></i></button>
+      <div class="searchbox d-none d-sm-block">
+        <i class="bi bi-search"></i>
+        <input type="search" placeholder="Search patients, invoices, appointments…" aria-label="Search">
+      </div>
+      <div class="ms-auto d-flex align-items-center gap-2">
+        <a class="icon-btn d-none d-md-grid" href="appointments-create.html" title="Book appointment"><i class="bi bi-calendar-plus"></i></a>
+        <button class="icon-btn" title="Notifications" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+          <i class="bi bi-bell"></i><span class="dot"></span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end" style="width:290px">
+          <li class="px-2 py-1 small text-muted fw-semibold">Notifications</li>
+          <li><a class="dropdown-item" href="appointments-waitlist.html"><i class="bi bi-hourglass-split text-warning me-2"></i>6 patients on the waiting list</a></li>
+          <li><a class="dropdown-item" href="billing-claims.html"><i class="bi bi-shield-exclamation text-danger me-2"></i>3 insurance claims rejected</a></li>
+          <li><a class="dropdown-item" href="billing-invoices.html"><i class="bi bi-receipt text-primary me-2"></i>INV-2451 is 30 days overdue</a></li>
+        </ul>
+
+        <div class="dropdown">
+          <button class="userchip" data-bs-toggle="dropdown">
+            <span class="avatar" data-role-initials>AO</span>
+            <span class="text-start d-none d-sm-block lh-sm">
+              <span class="d-block fw-semibold" style="font-size:13px" data-role-name>Dr. Amara Okafor</span>
+              <span class="d-block text-muted" style="font-size:11.5px" data-role-title>Practice Administrator</span>
+            </span>
+            <i class="bi bi-chevron-down text-muted ms-1" style="font-size:11px"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" style="width:250px">
+            <li class="px-2 pt-1 pb-2 small text-muted">
+              Prototype: switch role to see how the menus and screens change.
+            </li>
+            <li><a class="dropdown-item" href="#" data-set-role="Admin" data-go="home"><i class="bi bi-shield-lock me-2 text-secondary"></i>Admin</a></li>
+            <li><a class="dropdown-item" href="#" data-set-role="Dentist" data-go="home"><i class="bi bi-person-vcard me-2 text-secondary"></i>Dentist</a></li>
+            <li><a class="dropdown-item" href="#" data-set-role="Receptionist" data-go="home"><i class="bi bi-headset me-2 text-secondary"></i>Receptionist</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="admin-settings.html"><i class="bi bi-gear me-2 text-secondary"></i>Settings</a></li>
+            <li><a class="dropdown-item" href="account-login.html"><i class="bi bi-box-arrow-right me-2 text-secondary"></i>Sign out</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============ @RenderBody() ============ -->
+    <main class="page">
+<div class="page-head">
+  <div>
+    <ol class="breadcrumb"><li class="breadcrumb-item"><a href="dashboard-reception.html">Home</a></li><li class="breadcrumb-item active" aria-current="page">Front desk</li></ol>
+    <h1>Front desk</h1>
+    <p class="sub">Thursday, 14 August 2026 · 48 appointments · 3 chairs running</p>
+  </div>
+  <div class="d-flex gap-2 flex-wrap no-print"><a class="btn btn-soft" href="patients-create.html"><i class="bi bi-person-plus me-1"></i>Register patient</a><a class="btn btn-brand" href="appointments-create.html"><i class="bi bi-calendar-plus me-1"></i>Book appointment</a></div>
+</div>
+<div class="row g-3 mb-3"><div class="col-6 col-xl-3">
+  <div class="card-x h-100"><div class="kpi">
+    <div class="ic ic-green"><i class="bi bi-person-check"></i></div>
+    <div><div class="val">12</div><div class="lbl">Arrived / checked in</div></div>
+  </div></div>
+</div><div class="col-6 col-xl-3">
+  <div class="card-x h-100"><div class="kpi">
+    <div class="ic ic-amber"><i class="bi bi-hourglass-split"></i></div>
+    <div><div class="val">3</div><div class="lbl">Waiting &gt; 10 min</div></div>
+  </div></div>
+</div><div class="col-6 col-xl-3">
+  <div class="card-x h-100"><div class="kpi">
+    <div class="ic ic-blue"><i class="bi bi-telephone"></i></div>
+    <div><div class="val">9</div><div class="lbl">Unconfirmed tomorrow</div></div>
+  </div></div>
+</div><div class="col-6 col-xl-3">
+  <div class="card-x h-100"><div class="kpi">
+    <div class="ic ic-teal"><i class="bi bi-cash-coin"></i></div>
+    <div><div class="val">$1,860</div><div class="lbl">To collect today</div></div>
+  </div></div>
+</div>
+</div>
+
+<div class="row g-3">
+  <div class="col-xl-8">
+    <div class="card-x "><div class="card-x-head">
+    <div><h2>Arrivals</h2></div>
+    <div class="d-flex gap-2 align-items-center flex-wrap"><div class="btn-group btn-group-sm"><button class="btn btn-soft active">Today</button><button class="btn btn-soft">Tomorrow</button></div><a class="btn btn-ghost btn-sm" href="appointments-index.html">All appointments</a></div>
+  </div><div class="table-responsive">
+  <table class="table table-x ">
+    <thead><tr><th>Time</th><th>Patient</th><th>Dentist / chair</th><th>Status</th><th>Balance</th><th></th></tr></thead>
+    <tbody><tr><td class="fw-semibold">09:30</td><td><div class="d-flex align-items-center gap-2">
+  <span class="avatar sm">MK</span>
+  <span><span class="d-block t-main">Marcus Kelly</span><span class="d-block t-sub">PT-10428</span></span>
+</div></td><td>Dr. Bianchi · Chair 2</td><td><span class="pill pill-green"><i class="bi bi-circle-fill"></i>In chair</span></td><td>$0.00</td><td class="text-end"><a class="btn btn-soft btn-sm" href="billing-invoice-create.html">Invoice</a></td></tr><tr><td class="fw-semibold">09:45</td><td><div class="d-flex align-items-center gap-2">
+  <span class="avatar sm">EW</span>
+  <span><span class="d-block t-main">Elena Whitfield</span><span class="d-block t-sub">PT-10391</span></span>
+</div></td><td>M. Adeyemi · Hygiene 1</td><td><span class="pill pill-amber"><i class="bi bi-circle-fill"></i>Waiting 14 min</span></td><td>$65.00</td><td class="text-end"><a class="btn btn-soft btn-sm" href="billing-payments.html">Take payment</a></td></tr><tr><td class="fw-semibold">10:00</td><td><div class="d-flex align-items-center gap-2">
+  <span class="avatar sm">TA</span>
+  <span><span class="d-block t-main">Tobias Ackerman</span><span class="d-block t-sub">PT-10502</span></span>
+</div></td><td>Dr. Okafor · Chair 1</td><td><span class="pill pill-blue"><i class="bi bi-circle-fill"></i>Arrived</span></td><td>$0.00</td><td class="text-end"><a class="btn btn-brand btn-sm" href="#">Check in</a></td></tr><tr><td class="fw-semibold">10:30</td><td><div class="d-flex align-items-center gap-2">
+  <span class="avatar sm">RJ</span>
+  <span><span class="d-block t-main">Rania Jabari</span><span class="d-block t-sub">PT-10233</span></span>
+</div></td><td>Dr. Bianchi · Chair 2</td><td><span class="pill pill-gray"><i class="bi bi-circle-fill"></i>Not arrived</span></td><td>$420.00</td><td class="text-end"><a class="btn btn-soft btn-sm" href="appointments-reschedule.html">Call</a></td></tr><tr><td class="fw-semibold">10:45</td><td><div class="d-flex align-items-center gap-2">
+  <span class="avatar sm">DS</span>
+  <span><span class="d-block t-main">Daniel Sorenson</span><span class="d-block t-sub">PT-10477</span></span>
+</div></td><td>Dr. Okafor · Chair 1</td><td><span class="pill pill-purple"><i class="bi bi-circle-fill"></i>New — forms pending</span></td><td>$0.00</td><td class="text-end"><a class="btn btn-soft btn-sm" href="patients-create.html">Finish registration</a></td></tr><tr><td class="fw-semibold">11:15</td><td><div class="d-flex align-items-center gap-2">
+  <span class="avatar sm">HN</span>
+  <span><span class="d-block t-main">Hugo Nakamura</span><span class="d-block t-sub">PT-10310</span></span>
+</div></td><td>Dr. Bianchi · Chair 2</td><td><span class="pill pill-gray"><i class="bi bi-circle-fill"></i>Not arrived</span></td><td>$0.00</td><td class="text-end"><a class="btn btn-soft btn-sm" href="appointments-reschedule.html">Reschedule</a></td></tr></tbody>
+  </table>
+</div></div>
+  </div>
+
+  <div class="col-xl-4">
+    <div class="card-x "><div class="card-x-head">
+    <div><h2>Confirmation queue</h2></div>
+    <div class="d-flex gap-2 align-items-center"></div>
+  </div><div class="card-x-body">
+      <p class="text-muted small">Tomorrow, 15 August — 9 appointments still unconfirmed.</p>
+      <div class="d-grid gap-2">
+        <div class="d-flex align-items-center gap-2 p-2 rounded" style="border:1px solid var(--line)"><div class="d-flex align-items-center gap-2">
+  <span class="avatar sm">AC</span>
+  <span><span class="d-block t-main">Aisha Chowdhury</span><span class="d-block t-sub">08:30 · Crown prep</span></span>
+</div>
+          <div class="ms-auto d-flex gap-1">
+            <button class="icon-btn" style="width:32px;height:32px" title="Call"><i class="bi bi-telephone"></i></button>
+            <button class="icon-btn" style="width:32px;height:32px" title="SMS"><i class="bi bi-chat-dots"></i></button>
+          </div>
+        </div>
+        <div class="d-flex align-items-center gap-2 p-2 rounded" style="border:1px solid var(--line)"><div class="d-flex align-items-center gap-2">
+  <span class="avatar sm">PL</span>
+  <span><span class="d-block t-main">Peter Lindqvist</span><span class="d-block t-sub">09:15 · Denture fit</span></span>
+</div>
+          <div class="ms-auto d-flex gap-1">
+            <button class="icon-btn" style="width:32px;height:32px" title="Call"><i class="bi bi-telephone"></i></button>
+            <button class="icon-btn" style="width:32px;height:32px" title="SMS"><i class="bi bi-chat-dots"></i></button>
+          </div>
+        </div>
+        <div class="d-flex align-items-center gap-2 p-2 rounded" style="border:1px solid var(--line)"><div class="d-flex align-items-center gap-2">
+  <span class="avatar sm">SN</span>
+  <span><span class="d-block t-main">Sara Nowak</span><span class="d-block t-sub">11:00 · Review</span></span>
+</div>
+          <div class="ms-auto d-flex gap-1">
+            <button class="icon-btn" style="width:32px;height:32px" title="Call"><i class="bi bi-telephone"></i></button>
+            <button class="icon-btn" style="width:32px;height:32px" title="SMS"><i class="bi bi-chat-dots"></i></button>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-soft btn-sm w-100 mt-3"><i class="bi bi-send me-1"></i>Send all SMS reminders</button>
+    </div></div>
+    <div class="mt-3"><div class="card-x "><div class="card-x-head">
+    <div><h2>Waiting list</h2></div>
+    <div class="d-flex gap-2 align-items-center"></div>
+  </div><div class="card-x-body">
+      <p class="text-muted small mb-2">Patients who will take an earlier slot if one frees up.</p>
+      <div class="d-flex justify-content-between align-items-center">
+        <div><div class="fw-semibold">6 patients</div><div class="text-muted small">2 urgent · longest wait 11 days</div></div>
+        <a class="btn btn-soft btn-sm" href="appointments-waitlist.html">Open</a>
+      </div>
+    </div></div></div>
+  </div>
+</div>
+
+    </main>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

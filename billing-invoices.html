@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Invoices · DentaSuite</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="assets/css/site.css" rel="stylesheet">
+</head>
+<body>
+<div class="proto-ribbon no-print">
+  <i class="bi bi-eye"></i>
+  <span>Interface prototype — <strong>Views/Billing/Invoices.cshtml</strong></span>
+  <span class="d-none d-md-inline">·</span>
+  <a href="index.html" class="d-none d-md-inline">screen map</a>
+</div>
+
+<div class="backdrop-x"></div>
+<div class="app">
+
+  <!-- ============ _Layout.cshtml : sidebar navigation ============ -->
+  <aside class="sidebar">
+    <a class="brand" href="dashboard-admin.html" data-role-home>
+      <span class="logo"><i class="bi bi-hexagon-fill"></i></span>
+      <span>DentaSuite<small>Clinic Suite</small></span>
+    </a>
+    <div class="nav-group" data-roles="Admin,Dentist,Receptionist">
+<div class="nav-group-title">Overview</div>
+<a class="nav-link-x" href="dashboard-admin.html" data-roles="Admin"><i class="bi bi-grid-1x2"></i><span>Dashboard</span></a>
+<a class="nav-link-x" href="dashboard-dentist.html" data-roles="Dentist"><i class="bi bi-sun"></i><span>My Day</span></a>
+<a class="nav-link-x" href="dashboard-reception.html" data-roles="Receptionist"><i class="bi bi-door-open"></i><span>Front Desk</span></a>
+</div>
+<div class="nav-group" data-roles="Admin,Dentist,Receptionist">
+<div class="nav-group-title">Patients</div>
+<a class="nav-link-x" href="patients-index.html" data-roles="Admin,Dentist,Receptionist"><i class="bi bi-people"></i><span>All Patients</span></a>
+<a class="nav-link-x" href="patients-create.html" data-roles="Admin,Receptionist"><i class="bi bi-person-plus"></i><span>Register Patient</span></a>
+<a class="nav-link-x" href="patients-details.html" data-roles="Admin,Dentist,Receptionist"><i class="bi bi-folder2-open"></i><span>Patient Record</span></a>
+</div>
+<div class="nav-group" data-roles="Admin,Dentist,Receptionist">
+<div class="nav-group-title">Appointments</div>
+<a class="nav-link-x" href="appointments-calendar.html" data-roles="Admin,Dentist,Receptionist"><i class="bi bi-calendar3"></i><span>Calendar</span></a>
+<a class="nav-link-x" href="appointments-index.html" data-roles="Admin,Dentist,Receptionist"><i class="bi bi-list-check"></i><span>Appointment List</span></a>
+<a class="nav-link-x" href="appointments-create.html" data-roles="Admin,Receptionist"><i class="bi bi-calendar-plus"></i><span>Book Appointment</span></a>
+<a class="nav-link-x" href="appointments-reschedule.html" data-roles="Admin,Dentist,Receptionist"><i class="bi bi-arrow-left-right"></i><span>Reschedule</span></a>
+<a class="nav-link-x" href="appointments-waitlist.html" data-roles="Admin,Receptionist"><i class="bi bi-hourglass-split"></i><span>Waiting List</span><span class="badge rounded-pill text-bg-light">6</span></a>
+</div>
+<div class="nav-group" data-roles="Admin,Dentist">
+<div class="nav-group-title">Clinical</div>
+<a class="nav-link-x" href="treatments-chart.html" data-roles="Admin,Dentist"><i class="bi bi-diagram-3"></i><span>Dental Chart</span></a>
+<a class="nav-link-x" href="treatments-plan.html" data-roles="Admin,Dentist"><i class="bi bi-clipboard2-pulse"></i><span>Treatment Plan</span></a>
+<a class="nav-link-x" href="treatments-procedures.html" data-roles="Admin,Dentist"><i class="bi bi-journal-medical"></i><span>Procedure Catalogue</span></a>
+<a class="nav-link-x" href="treatments-prescriptions.html" data-roles="Admin,Dentist"><i class="bi bi-capsule"></i><span>Prescriptions</span></a>
+</div>
+<div class="nav-group" data-roles="Admin,Receptionist">
+<div class="nav-group-title">Billing</div>
+<a class="nav-link-x active" href="billing-invoices.html" data-roles="Admin,Receptionist"><i class="bi bi-receipt"></i><span>Invoices</span></a>
+<a class="nav-link-x" href="billing-invoice-create.html" data-roles="Admin,Receptionist"><i class="bi bi-file-earmark-plus"></i><span>New Invoice</span></a>
+<a class="nav-link-x" href="billing-payments.html" data-roles="Admin,Receptionist"><i class="bi bi-credit-card"></i><span>Payments</span></a>
+<a class="nav-link-x" href="billing-claims.html" data-roles="Admin,Receptionist"><i class="bi bi-shield-check"></i><span>Insurance Claims</span><span class="badge rounded-pill text-bg-light">3</span></a>
+</div>
+<div class="nav-group" data-roles="Admin">
+<div class="nav-group-title">Insights</div>
+<a class="nav-link-x" href="reports-index.html" data-roles="Admin"><i class="bi bi-bar-chart-line"></i><span>Reports</span></a>
+</div>
+<div class="nav-group" data-roles="Admin">
+<div class="nav-group-title">Administration</div>
+<a class="nav-link-x" href="admin-users.html" data-roles="Admin"><i class="bi bi-person-badge"></i><span>Users & Roles</span></a>
+<a class="nav-link-x" href="admin-clinic.html" data-roles="Admin"><i class="bi bi-hospital"></i><span>Clinic & Chairs</span></a>
+<a class="nav-link-x" href="admin-settings.html" data-roles="Admin"><i class="bi bi-gear"></i><span>Settings</span></a>
+</div>
+    <div class="sidebar-foot">
+      <a href="index.html"><i class="bi bi-diagram-2 me-1"></i>Screen map</a>
+      <a href="account-login.html"><i class="bi bi-box-arrow-right me-1"></i>Sign out</a>
+      <div class="mt-2 opacity-75">v0.9 · prototype</div>
+    </div>
+  </aside>
+
+  <div class="main">
+    <!-- ============ _Layout.cshtml : top bar ============ -->
+    <header class="topbar no-print">
+      <button class="icon-btn d-lg-none" data-toggle-nav aria-label="Menu"><i class="bi bi-list"></i></button>
+      <div class="searchbox d-none d-sm-block">
+        <i class="bi bi-search"></i>
+        <input type="search" placeholder="Search patients, invoices, appointments…" aria-label="Search">
+      </div>
+      <div class="ms-auto d-flex align-items-center gap-2">
+        <a class="icon-btn d-none d-md-grid" href="appointments-create.html" title="Book appointment"><i class="bi bi-calendar-plus"></i></a>
+        <button class="icon-btn" title="Notifications" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+          <i class="bi bi-bell"></i><span class="dot"></span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end" style="width:290px">
+          <li class="px-2 py-1 small text-muted fw-semibold">Notifications</li>
+          <li><a class="dropdown-item" href="appointments-waitlist.html"><i class="bi bi-hourglass-split text-warning me-2"></i>6 patients on the waiting list</a></li>
+          <li><a class="dropdown-item" href="billing-claims.html"><i class="bi bi-shield-exclamation text-danger me-2"></i>3 insurance claims rejected</a></li>
+          <li><a class="dropdown-item" href="billing-invoices.html"><i class="bi bi-receipt text-primary me-2"></i>INV-2451 is 30 days overdue</a></li>
+        </ul>
+
+        <div class="dropdown">
+          <button class="userchip" data-bs-toggle="dropdown">
+            <span class="avatar" data-role-initials>AO</span>
+            <span class="text-start d-none d-sm-block lh-sm">
+              <span class="d-block fw-semibold" style="font-size:13px" data-role-name>Dr. Amara Okafor</span>
+              <span class="d-block text-muted" style="font-size:11.5px" data-role-title>Practice Administrator</span>
+            </span>
+            <i class="bi bi-chevron-down text-muted ms-1" style="font-size:11px"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" style="width:250px">
+            <li class="px-2 pt-1 pb-2 small text-muted">
+              Prototype: switch role to see how the menus and screens change.
+            </li>
+            <li><a class="dropdown-item" href="#" data-set-role="Admin" data-go="home"><i class="bi bi-shield-lock me-2 text-secondary"></i>Admin</a></li>
+            <li><a class="dropdown-item" href="#" data-set-role="Dentist" data-go="home"><i class="bi bi-person-vcard me-2 text-secondary"></i>Dentist</a></li>
+            <li><a class="dropdown-item" href="#" data-set-role="Receptionist" data-go="home"><i class="bi bi-headset me-2 text-secondary"></i>Receptionist</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="admin-settings.html"><i class="bi bi-gear me-2 text-secondary"></i>Settings</a></li>
+            <li><a class="dropdown-item" href="account-login.html"><i class="bi bi-box-arrow-right me-2 text-secondary"></i>Sign out</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============ @RenderBody() ============ -->
+    <main class="page">
+<div class="page-head">
+  <div>
+    <ol class="breadcrumb"><li class="breadcrumb-item"><a href="dashboard-admin.html">Home</a></li><li class="breadcrumb-item active" aria-current="page">Billing</li><li class="breadcrumb-item active" aria-current="page">Invoices</li></ol>
+    <h1>Invoices</h1>
+    <p class="sub">94 open · $36,240 outstanding · 11 overdue</p>
+  </div>
+  <div class="d-flex gap-2 flex-wrap no-print"><button class="btn btn-soft"><i class="bi bi-send me-1"></i>Send statements</button><a class="btn btn-brand" href="billing-invoice-create.html"><i class="bi bi-file-earmark-plus me-1"></i>New invoice</a></div>
+</div>
+<div class="row g-3 mb-3"><div class="col-6 col-xl-3">
+  <div class="card-x h-100"><div class="kpi">
+    <div class="ic ic-teal"><i class="bi bi-cash-stack"></i></div>
+    <div><div class="val">$36,240</div><div class="lbl">Total outstanding</div></div>
+  </div></div>
+</div><div class="col-6 col-xl-3">
+  <div class="card-x h-100"><div class="kpi">
+    <div class="ic ic-amber"><i class="bi bi-hourglass"></i></div>
+    <div><div class="val">$14,760</div><div class="lbl">Over 30 days</div></div>
+  </div></div>
+</div><div class="col-6 col-xl-3">
+  <div class="card-x h-100"><div class="kpi">
+    <div class="ic ic-green"><i class="bi bi-check2-circle"></i></div>
+    <div><div class="val">$171,930</div><div class="lbl">Collected this month</div></div>
+  </div></div>
+</div><div class="col-6 col-xl-3">
+  <div class="card-x h-100"><div class="kpi">
+    <div class="ic ic-blue"><i class="bi bi-percent"></i></div>
+    <div><div class="val">92.2%</div><div class="lbl">Collection rate</div></div>
+  </div></div>
+</div>
+</div>
+
+<div class="card-x "><div class="card-x-body">
+<div class="row g-2 align-items-end">
+  <div class="col-lg-3 col-md-6"><label class="form-label">Search</label>
+    <div class="input-group"><span class="input-group-text bg-white border-end-0"><i class="bi bi-search text-muted"></i></span>
+    <input class="form-control border-start-0" placeholder="Invoice number or patient"></div></div>
+  <div class="col-lg-2 col-md-3 col-6"><label class="form-label">Status</label><select class="form-select"><option>All statuses</option><option>Draft</option><option>Sent</option><option>Part paid</option><option>Paid</option><option>Overdue</option><option>Void</option></select></div>
+  <div class="col-lg-2 col-md-3 col-6"><label class="form-label">Ageing</label><select class="form-select"><option>Any</option><option>Current</option><option>31–60 days</option><option>61–90 days</option><option>90+ days</option></select></div>
+  <div class="col-lg-2 col-md-3 col-6"><label class="form-label">From</label><input type="date" class="form-control" placeholder="" value="2026-06-01"></div>
+  <div class="col-lg-2 col-md-3 col-6"><label class="form-label">To</label><input type="date" class="form-control" placeholder="" value="2026-08-14"></div>
+  <div class="col-lg-1 col-12"><button class="btn btn-brand w-100">Apply</button></div>
+</div>
+</div></div>
+
+<div class="mt-3">
+<div class="card-x "><div class="table-responsive">
+  <table class="table table-x ">
+    <thead><tr><th style="width:34px"><input class="form-check-input" type="checkbox"></th><th>Invoice</th><th>Patient</th><th>Issued</th><th class="text-end">Total</th><th class="text-end">Paid</th><th class="text-end">Balance</th><th>Status</th><th class="text-end"></th></tr></thead>
+    <tbody><tr><td><input class="form-check-input" type="checkbox"></td><td class="fw-semibold"><a class="text-decoration-none" href="billing-invoice-details.html">INV-2481</a></td><td><div class="d-flex align-items-center gap-2">
+  <span class="avatar sm">RJ</span>
+  <span><span class="d-block t-main">Rania Jabari</span><span class="d-block t-sub">PT-10233</span></span>
+</div></td><td>29 Jul 2026<div class="t-sub">due 28 Aug 2026</div></td><td class="text-end">$890.00</td><td class="text-end text-muted">$470.00</td><td class="text-end fw-semibold">$420.00</td><td><span class="pill pill-amber"><i class="bi bi-circle-fill"></i>Part paid</span></td><td class="text-end"><div class="dropdown"><button class="btn btn-ghost btn-sm" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></button><ul class="dropdown-menu dropdown-menu-end"><li><a class="dropdown-item" href="billing-invoice-details.html"><i class="bi bi-eye me-2"></i>View invoice</a></li><li><a class="dropdown-item" href="billing-payments.html"><i class="bi bi-credit-card me-2"></i>Take payment</a></li><li><a class="dropdown-item" href="#"><i class="bi bi-send me-2"></i>Send to patient</a></li><li><a class="dropdown-item" href="billing-claims.html"><i class="bi bi-shield-check me-2"></i>Submit claim</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item text-danger" href="#" data-roles="Admin"><i class="bi bi-x-circle me-2"></i>Void invoice</a></li></ul></div></td></tr><tr><td><input class="form-check-input" type="checkbox"></td><td class="fw-semibold"><a class="text-decoration-none" href="billing-invoice-details.html">INV-2480</a></td><td><div class="d-flex align-items-center gap-2">
+  <span class="avatar sm">AC</span>
+  <span><span class="d-block t-main">Aisha Chowdhury</span><span class="d-block t-sub">PT-10455</span></span>
+</div></td><td>10 Aug 2026<div class="t-sub">due 09 Sep 2026</div></td><td class="text-end">$490.00</td><td class="text-end text-muted">$0.00</td><td class="text-end fw-semibold">$490.00</td><td><span class="pill pill-blue"><i class="bi bi-circle-fill"></i>Sent</span></td><td class="text-end"><div class="dropdown"><button class="btn btn-ghost btn-sm" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></button><ul class="dropdown-menu dropdown-menu-end"><li><a class="dropdown-item" href="billing-invoice-details.html"><i class="bi bi-eye me-2"></i>View invoice</a></li><li><a class="dropdown-item" href="billing-payments.html"><i class="bi bi-credit-card me-2"></i>Take payment</a></li><li><a class="dropdown-item" href="#"><i class="bi bi-send me-2"></i>Send to patient</a></li><li><a class="dropdown-item" href="billing-claims.html"><i class="bi bi-shield-check me-2"></i>Submit claim</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item text-danger" href="#" data-roles="Admin"><i class="bi bi-x-circle me-2"></i>Void invoice</a></li></ul></div></td></tr><tr><td><input class="form-check-input" type="checkbox"></td><td class="fw-semibold"><a class="text-decoration-none" href="billing-invoice-details.html">INV-2479</a></td><td><div class="d-flex align-items-center gap-2">
+  <span class="avatar sm">SN</span>
+  <span><span class="d-block t-main">Sara Nowak</span><span class="d-block t-sub">PT-10188</span></span>
+</div></td><td>09 Aug 2026<div class="t-sub">due 08 Sep 2026</div></td><td class="text-end">$120.00</td><td class="text-end text-muted">$0.00</td><td class="text-end fw-semibold">$120.00</td><td><span class="pill pill-blue"><i class="bi bi-circle-fill"></i>Sent</span></td><td class="text-end"><div class="dropdown"><button class="btn btn-ghost btn-sm" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></button><ul class="dropdown-menu dropdown-menu-end"><li><a class="dropdown-item" href="billing-invoice-details.html"><i class="bi bi-eye me-2"></i>View invoice</a></li><li><a class="dropdown-item" href="billing-payments.html"><i class="bi bi-credit-card me-2"></i>Take payment</a></li><li><a class="dropdown-item" href="#"><i class="bi bi-send me-2"></i>Send to patient</a></li><li><a class="dropdown-item" href="billing-claims.html"><i class="bi bi-shield-check me-2"></i>Submit claim</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item text-danger" href="#" data-roles="Admin"><i class="bi bi-x-circle me-2"></i>Void invoice</a></li></ul></div></td></tr><tr><td><input class="form-check-input" type="checkbox"></td><td class="fw-semibold"><a class="text-decoration-none" href="billing-invoice-details.html">INV-2478</a></td><td><div class="d-flex align-items-center gap-2">
+  <span class="avatar sm">MK</span>
+  <span><span class="d-block t-main">Marcus Kelly</span><span class="d-block t-sub">PT-10428</span></span>
+</div></td><td>12 Aug 2026<div class="t-sub">due 11 Sep 2026</div></td><td class="text-end">$310.00</td><td class="text-end text-muted">$310.00</td><td class="text-end fw-semibold">$0.00</td><td><span class="pill pill-green"><i class="bi bi-circle-fill"></i>Paid</span></td><td class="text-end"><div class="dropdown"><button class="btn btn-ghost btn-sm" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></button><ul class="dropdown-menu dropdown-menu-end"><li><a class="dropdown-item" href="billing-invoice-details.html"><i class="bi bi-eye me-2"></i>View invoice</a></li><li><a class="dropdown-item" href="billing-payments.html"><i class="bi bi-credit-card me-2"></i>Take payment</a></li><li><a class="dropdown-item" href="#"><i class="bi bi-send me-2"></i>Send to patient</a></li><li><a class="dropdown-item" href="billing-claims.html"><i class="bi bi-shield-check me-2"></i>Submit claim</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item text-danger" href="#" data-roles="Admin"><i class="bi bi-x-circle me-2"></i>Void invoice</a></li></ul></div></td></tr><tr><td><input class="form-check-input" type="checkbox"></td><td class="fw-semibold"><a class="text-decoration-none" href="billing-invoice-details.html">INV-2477</a></td><td><div class="d-flex align-items-center gap-2">
+  <span class="avatar sm">EW</span>
+  <span><span class="d-block t-main">Elena Whitfield</span><span class="d-block t-sub">PT-10391</span></span>
+</div></td><td>12 Aug 2026<div class="t-sub">due 11 Sep 2026</div></td><td class="text-end">$65.00</td><td class="text-end text-muted">$0.00</td><td class="text-end fw-semibold">$65.00</td><td><span class="pill pill-amber"><i class="bi bi-circle-fill"></i>Due today</span></td><td class="text-end"><div class="dropdown"><button class="btn btn-ghost btn-sm" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></button><ul class="dropdown-menu dropdown-menu-end"><li><a class="dropdown-item" href="billing-invoice-details.html"><i class="bi bi-eye me-2"></i>View invoice</a></li><li><a class="dropdown-item" href="billing-payments.html"><i class="bi bi-credit-card me-2"></i>Take payment</a></li><li><a class="dropdown-item" href="#"><i class="bi bi-send me-2"></i>Send to patient</a></li><li><a class="dropdown-item" href="billing-claims.html"><i class="bi bi-shield-check me-2"></i>Submit claim</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item text-danger" href="#" data-roles="Admin"><i class="bi bi-x-circle me-2"></i>Void invoice</a></li></ul></div></td></tr><tr><td><input class="form-check-input" type="checkbox"></td><td class="fw-semibold"><a class="text-decoration-none" href="billing-invoice-details.html">INV-2451</a></td><td><div class="d-flex align-items-center gap-2">
+  <span class="avatar sm">PL</span>
+  <span><span class="d-block t-main">Peter Lindqvist</span><span class="d-block t-sub">PT-10099</span></span>
+</div></td><td>02 Jul 2026<div class="t-sub">due 01 Aug 2026</div></td><td class="text-end">$740.00</td><td class="text-end text-muted">$0.00</td><td class="text-end fw-semibold">$740.00</td><td><span class="pill pill-red"><i class="bi bi-circle-fill"></i>Overdue 30 d</span></td><td class="text-end"><div class="dropdown"><button class="btn btn-ghost btn-sm" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></button><ul class="dropdown-menu dropdown-menu-end"><li><a class="dropdown-item" href="billing-invoice-details.html"><i class="bi bi-eye me-2"></i>View invoice</a></li><li><a class="dropdown-item" href="billing-payments.html"><i class="bi bi-credit-card me-2"></i>Take payment</a></li><li><a class="dropdown-item" href="#"><i class="bi bi-send me-2"></i>Send to patient</a></li><li><a class="dropdown-item" href="billing-claims.html"><i class="bi bi-shield-check me-2"></i>Submit claim</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item text-danger" href="#" data-roles="Admin"><i class="bi bi-x-circle me-2"></i>Void invoice</a></li></ul></div></td></tr><tr><td><input class="form-check-input" type="checkbox"></td><td class="fw-semibold"><a class="text-decoration-none" href="billing-invoice-details.html">INV-2448</a></td><td><div class="d-flex align-items-center gap-2">
+  <span class="avatar sm">HN</span>
+  <span><span class="d-block t-main">Hugo Nakamura</span><span class="d-block t-sub">PT-10310</span></span>
+</div></td><td>28 Jun 2026<div class="t-sub">due 28 Jul 2026</div></td><td class="text-end">$220.00</td><td class="text-end text-muted">$220.00</td><td class="text-end fw-semibold">$0.00</td><td><span class="pill pill-green"><i class="bi bi-circle-fill"></i>Paid</span></td><td class="text-end"><div class="dropdown"><button class="btn btn-ghost btn-sm" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></button><ul class="dropdown-menu dropdown-menu-end"><li><a class="dropdown-item" href="billing-invoice-details.html"><i class="bi bi-eye me-2"></i>View invoice</a></li><li><a class="dropdown-item" href="billing-payments.html"><i class="bi bi-credit-card me-2"></i>Take payment</a></li><li><a class="dropdown-item" href="#"><i class="bi bi-send me-2"></i>Send to patient</a></li><li><a class="dropdown-item" href="billing-claims.html"><i class="bi bi-shield-check me-2"></i>Submit claim</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item text-danger" href="#" data-roles="Admin"><i class="bi bi-x-circle me-2"></i>Void invoice</a></li></ul></div></td></tr><tr><td><input class="form-check-input" type="checkbox"></td><td class="fw-semibold"><a class="text-decoration-none" href="billing-invoice-details.html">INV-2440</a></td><td><div class="d-flex align-items-center gap-2">
+  <span class="avatar sm">GM</span>
+  <span><span class="d-block t-main">Grace Mbeki</span><span class="d-block t-sub">PT-10061</span></span>
+</div></td><td>21 Jun 2026<div class="t-sub">due 21 Jul 2026</div></td><td class="text-end">$185.00</td><td class="text-end text-muted">$0.00</td><td class="text-end fw-semibold">$185.00</td><td><span class="pill pill-red"><i class="bi bi-circle-fill"></i>Overdue 24 d</span></td><td class="text-end"><div class="dropdown"><button class="btn btn-ghost btn-sm" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></button><ul class="dropdown-menu dropdown-menu-end"><li><a class="dropdown-item" href="billing-invoice-details.html"><i class="bi bi-eye me-2"></i>View invoice</a></li><li><a class="dropdown-item" href="billing-payments.html"><i class="bi bi-credit-card me-2"></i>Take payment</a></li><li><a class="dropdown-item" href="#"><i class="bi bi-send me-2"></i>Send to patient</a></li><li><a class="dropdown-item" href="billing-claims.html"><i class="bi bi-shield-check me-2"></i>Submit claim</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item text-danger" href="#" data-roles="Admin"><i class="bi bi-x-circle me-2"></i>Void invoice</a></li></ul></div></td></tr><tr><td><input class="form-check-input" type="checkbox"></td><td class="fw-semibold"><a class="text-decoration-none" href="billing-invoice-details.html">INV-2432</a></td><td><div class="d-flex align-items-center gap-2">
+  <span class="avatar sm">TA</span>
+  <span><span class="d-block t-main">Tobias Ackerman</span><span class="d-block t-sub">PT-10502</span></span>
+</div></td><td>18 Jun 2026<div class="t-sub">due 18 Jul 2026</div></td><td class="text-end">$1,240.00</td><td class="text-end text-muted">$1,240.00</td><td class="text-end fw-semibold">$0.00</td><td><span class="pill pill-green"><i class="bi bi-circle-fill"></i>Paid</span></td><td class="text-end"><div class="dropdown"><button class="btn btn-ghost btn-sm" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></button><ul class="dropdown-menu dropdown-menu-end"><li><a class="dropdown-item" href="billing-invoice-details.html"><i class="bi bi-eye me-2"></i>View invoice</a></li><li><a class="dropdown-item" href="billing-payments.html"><i class="bi bi-credit-card me-2"></i>Take payment</a></li><li><a class="dropdown-item" href="#"><i class="bi bi-send me-2"></i>Send to patient</a></li><li><a class="dropdown-item" href="billing-claims.html"><i class="bi bi-shield-check me-2"></i>Submit claim</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item text-danger" href="#" data-roles="Admin"><i class="bi bi-x-circle me-2"></i>Void invoice</a></li></ul></div></td></tr><tr><td><input class="form-check-input" type="checkbox"></td><td class="fw-semibold"><a class="text-decoration-none" href="billing-invoice-details.html">INV-2428</a></td><td><div class="d-flex align-items-center gap-2">
+  <span class="avatar sm">DS</span>
+  <span><span class="d-block t-main">Daniel Sorenson</span><span class="d-block t-sub">PT-10477</span></span>
+</div></td><td>15 Jun 2026<div class="t-sub">due 15 Jul 2026</div></td><td class="text-end">$0.00</td><td class="text-end text-muted">$0.00</td><td class="text-end fw-semibold">$0.00</td><td><span class="pill pill-gray"><i class="bi bi-circle-fill"></i>Draft</span></td><td class="text-end"><div class="dropdown"><button class="btn btn-ghost btn-sm" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></button><ul class="dropdown-menu dropdown-menu-end"><li><a class="dropdown-item" href="billing-invoice-details.html"><i class="bi bi-eye me-2"></i>View invoice</a></li><li><a class="dropdown-item" href="billing-payments.html"><i class="bi bi-credit-card me-2"></i>Take payment</a></li><li><a class="dropdown-item" href="#"><i class="bi bi-send me-2"></i>Send to patient</a></li><li><a class="dropdown-item" href="billing-claims.html"><i class="bi bi-shield-check me-2"></i>Submit claim</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item text-danger" href="#" data-roles="Admin"><i class="bi bi-x-circle me-2"></i>Void invoice</a></li></ul></div></td></tr></tbody>
+  </table>
+</div><div class="card-x-foot"><div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+  <span class="text-muted small">Showing 1–10 of 94</span>
+  <nav><ul class="pagination pagination-sm mb-0">
+    <li class="page-item disabled"><span class="page-link">Previous</span></li>
+    <li class="page-item active"><span class="page-link">1</span></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul></nav></div></div></div>
+</div>
+
+    </main>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

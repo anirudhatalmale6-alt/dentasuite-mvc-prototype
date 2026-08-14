@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Patient record · DentaSuite</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="assets/css/site.css" rel="stylesheet">
+</head>
+<body>
+<div class="proto-ribbon no-print">
+  <i class="bi bi-eye"></i>
+  <span>Interface prototype — <strong>Views/Patients/Details.cshtml</strong></span>
+  <span class="d-none d-md-inline">·</span>
+  <a href="index.html" class="d-none d-md-inline">screen map</a>
+</div>
+
+<div class="backdrop-x"></div>
+<div class="app">
+
+  <!-- ============ _Layout.cshtml : sidebar navigation ============ -->
+  <aside class="sidebar">
+    <a class="brand" href="dashboard-admin.html" data-role-home>
+      <span class="logo"><i class="bi bi-hexagon-fill"></i></span>
+      <span>DentaSuite<small>Clinic Suite</small></span>
+    </a>
+    <div class="nav-group" data-roles="Admin,Dentist,Receptionist">
+<div class="nav-group-title">Overview</div>
+<a class="nav-link-x" href="dashboard-admin.html" data-roles="Admin"><i class="bi bi-grid-1x2"></i><span>Dashboard</span></a>
+<a class="nav-link-x" href="dashboard-dentist.html" data-roles="Dentist"><i class="bi bi-sun"></i><span>My Day</span></a>
+<a class="nav-link-x" href="dashboard-reception.html" data-roles="Receptionist"><i class="bi bi-door-open"></i><span>Front Desk</span></a>
+</div>
+<div class="nav-group" data-roles="Admin,Dentist,Receptionist">
+<div class="nav-group-title">Patients</div>
+<a class="nav-link-x" href="patients-index.html" data-roles="Admin,Dentist,Receptionist"><i class="bi bi-people"></i><span>All Patients</span></a>
+<a class="nav-link-x" href="patients-create.html" data-roles="Admin,Receptionist"><i class="bi bi-person-plus"></i><span>Register Patient</span></a>
+<a class="nav-link-x active" href="patients-details.html" data-roles="Admin,Dentist,Receptionist"><i class="bi bi-folder2-open"></i><span>Patient Record</span></a>
+</div>
+<div class="nav-group" data-roles="Admin,Dentist,Receptionist">
+<div class="nav-group-title">Appointments</div>
+<a class="nav-link-x" href="appointments-calendar.html" data-roles="Admin,Dentist,Receptionist"><i class="bi bi-calendar3"></i><span>Calendar</span></a>
+<a class="nav-link-x" href="appointments-index.html" data-roles="Admin,Dentist,Receptionist"><i class="bi bi-list-check"></i><span>Appointment List</span></a>
+<a class="nav-link-x" href="appointments-create.html" data-roles="Admin,Receptionist"><i class="bi bi-calendar-plus"></i><span>Book Appointment</span></a>
+<a class="nav-link-x" href="appointments-reschedule.html" data-roles="Admin,Dentist,Receptionist"><i class="bi bi-arrow-left-right"></i><span>Reschedule</span></a>
+<a class="nav-link-x" href="appointments-waitlist.html" data-roles="Admin,Receptionist"><i class="bi bi-hourglass-split"></i><span>Waiting List</span><span class="badge rounded-pill text-bg-light">6</span></a>
+</div>
+<div class="nav-group" data-roles="Admin,Dentist">
+<div class="nav-group-title">Clinical</div>
+<a class="nav-link-x" href="treatments-chart.html" data-roles="Admin,Dentist"><i class="bi bi-diagram-3"></i><span>Dental Chart</span></a>
+<a class="nav-link-x" href="treatments-plan.html" data-roles="Admin,Dentist"><i class="bi bi-clipboard2-pulse"></i><span>Treatment Plan</span></a>
+<a class="nav-link-x" href="treatments-procedures.html" data-roles="Admin,Dentist"><i class="bi bi-journal-medical"></i><span>Procedure Catalogue</span></a>
+<a class="nav-link-x" href="treatments-prescriptions.html" data-roles="Admin,Dentist"><i class="bi bi-capsule"></i><span>Prescriptions</span></a>
+</div>
+<div class="nav-group" data-roles="Admin,Receptionist">
+<div class="nav-group-title">Billing</div>
+<a class="nav-link-x" href="billing-invoices.html" data-roles="Admin,Receptionist"><i class="bi bi-receipt"></i><span>Invoices</span></a>
+<a class="nav-link-x" href="billing-invoice-create.html" data-roles="Admin,Receptionist"><i class="bi bi-file-earmark-plus"></i><span>New Invoice</span></a>
+<a class="nav-link-x" href="billing-payments.html" data-roles="Admin,Receptionist"><i class="bi bi-credit-card"></i><span>Payments</span></a>
+<a class="nav-link-x" href="billing-claims.html" data-roles="Admin,Receptionist"><i class="bi bi-shield-check"></i><span>Insurance Claims</span><span class="badge rounded-pill text-bg-light">3</span></a>
+</div>
+<div class="nav-group" data-roles="Admin">
+<div class="nav-group-title">Insights</div>
+<a class="nav-link-x" href="reports-index.html" data-roles="Admin"><i class="bi bi-bar-chart-line"></i><span>Reports</span></a>
+</div>
+<div class="nav-group" data-roles="Admin">
+<div class="nav-group-title">Administration</div>
+<a class="nav-link-x" href="admin-users.html" data-roles="Admin"><i class="bi bi-person-badge"></i><span>Users & Roles</span></a>
+<a class="nav-link-x" href="admin-clinic.html" data-roles="Admin"><i class="bi bi-hospital"></i><span>Clinic & Chairs</span></a>
+<a class="nav-link-x" href="admin-settings.html" data-roles="Admin"><i class="bi bi-gear"></i><span>Settings</span></a>
+</div>
+    <div class="sidebar-foot">
+      <a href="index.html"><i class="bi bi-diagram-2 me-1"></i>Screen map</a>
+      <a href="account-login.html"><i class="bi bi-box-arrow-right me-1"></i>Sign out</a>
+      <div class="mt-2 opacity-75">v0.9 · prototype</div>
+    </div>
+  </aside>
+
+  <div class="main">
+    <!-- ============ _Layout.cshtml : top bar ============ -->
+    <header class="topbar no-print">
+      <button class="icon-btn d-lg-none" data-toggle-nav aria-label="Menu"><i class="bi bi-list"></i></button>
+      <div class="searchbox d-none d-sm-block">
+        <i class="bi bi-search"></i>
+        <input type="search" placeholder="Search patients, invoices, appointments…" aria-label="Search">
+      </div>
+      <div class="ms-auto d-flex align-items-center gap-2">
+        <a class="icon-btn d-none d-md-grid" href="appointments-create.html" title="Book appointment"><i class="bi bi-calendar-plus"></i></a>
+        <button class="icon-btn" title="Notifications" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+          <i class="bi bi-bell"></i><span class="dot"></span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end" style="width:290px">
+          <li class="px-2 py-1 small text-muted fw-semibold">Notifications</li>
+          <li><a class="dropdown-item" href="appointments-waitlist.html"><i class="bi bi-hourglass-split text-warning me-2"></i>6 patients on the waiting list</a></li>
+          <li><a class="dropdown-item" href="billing-claims.html"><i class="bi bi-shield-exclamation text-danger me-2"></i>3 insurance claims rejected</a></li>
+          <li><a class="dropdown-item" href="billing-invoices.html"><i class="bi bi-receipt text-primary me-2"></i>INV-2451 is 30 days overdue</a></li>
+        </ul>
+
+        <div class="dropdown">
+          <button class="userchip" data-bs-toggle="dropdown">
+            <span class="avatar" data-role-initials>AO</span>
+            <span class="text-start d-none d-sm-block lh-sm">
+              <span class="d-block fw-semibold" style="font-size:13px" data-role-name>Dr. Amara Okafor</span>
+              <span class="d-block text-muted" style="font-size:11.5px" data-role-title>Practice Administrator</span>
+            </span>
+            <i class="bi bi-chevron-down text-muted ms-1" style="font-size:11px"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" style="width:250px">
+            <li class="px-2 pt-1 pb-2 small text-muted">
+              Prototype: switch role to see how the menus and screens change.
+            </li>
+            <li><a class="dropdown-item" href="#" data-set-role="Admin" data-go="home"><i class="bi bi-shield-lock me-2 text-secondary"></i>Admin</a></li>
+            <li><a class="dropdown-item" href="#" data-set-role="Dentist" data-go="home"><i class="bi bi-person-vcard me-2 text-secondary"></i>Dentist</a></li>
+            <li><a class="dropdown-item" href="#" data-set-role="Receptionist" data-go="home"><i class="bi bi-headset me-2 text-secondary"></i>Receptionist</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="admin-settings.html"><i class="bi bi-gear me-2 text-secondary"></i>Settings</a></li>
+            <li><a class="dropdown-item" href="account-login.html"><i class="bi bi-box-arrow-right me-2 text-secondary"></i>Sign out</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============ @RenderBody() ============ -->
+    <main class="page">
+<div class="page-head">
+  <div>
+    <ol class="breadcrumb"><li class="breadcrumb-item"><a href="dashboard-admin.html">Home</a></li><li class="breadcrumb-item"><a href="patients-index.html">Patients</a></li><li class="breadcrumb-item active" aria-current="page">Marcus Kelly</li></ol>
+    <h1>Marcus Kelly</h1>
+    <p class="sub">PT-10428 · 34 y · Male · Registered 04 Jan 2021</p>
+  </div>
+  <div class="d-flex gap-2 flex-wrap no-print"><a class="btn btn-soft" href="appointments-create.html"><i class="bi bi-calendar-plus me-1"></i>Book</a><a class="btn btn-soft" href="billing-invoice-create.html" data-roles="Admin,Receptionist"><i class="bi bi-receipt me-1"></i>New invoice</a><a class="btn btn-brand" href="treatments-chart.html" data-roles="Admin,Dentist"><i class="bi bi-diagram-3 me-1"></i>Open chart</a></div>
+</div>
+<div class="row g-3">
+  <div class="col-xl-4">
+    <div class="card-x "><div class="card-x-body">
+      <div class="d-flex gap-3">
+        <span class="avatar lg">MK</span>
+        <div>
+          <h3 style="font-size:17px;margin:0 0 2px">Marcus Kelly</h3>
+          <div class="text-muted small">PT-10428 · 34 y · Male</div>
+          <div class="d-flex gap-1 mt-2 flex-wrap"><span class="pill pill-green"><i class="bi bi-circle-fill"></i>Active</span><span class="pill pill-blue"><i class="bi bi-circle-fill"></i>Insured</span></div>
+        </div>
+      </div>
+      <hr>
+      <div class="d-flex gap-2 flex-wrap mb-3">
+        <span class="pill pill-red"><i class="bi bi-exclamation-triangle-fill"></i>Penicillin allergy</span>
+        <span class="pill pill-amber"><i class="bi bi-heart-pulse-fill"></i>Hypertension</span>
+        <span class="pill pill-purple"><i class="bi bi-emoji-frown-fill"></i>Dental anxiety</span>
+      </div>
+      <dl class="dl-x">
+        <dt>Mobile</dt><dd>+1 415 220 8841</dd>
+        <dt>Email</dt><dd>m.kelly@example.com</dd>
+        <dt>Address</dt><dd>221 Riverside Drive, Apt 4B<br>San Francisco, CA 94107</dd>
+        <dt>Primary dentist</dt><dd>Dr. Luca Bianchi</dd>
+        <dt>Recall</dt><dd>Every 6 months — next due 12 Aug 2026</dd>
+        <dt>Emergency contact</dt><dd>Nora Kelly (spouse) · +1 415 220 8842</dd>
+      </dl>
+      <div class="d-flex gap-2">
+        <button class="btn btn-soft btn-sm flex-grow-1"><i class="bi bi-pencil me-1"></i>Edit</button>
+        <button class="btn btn-soft btn-sm" data-roles="Admin"><i class="bi bi-archive"></i></button>
+      </div>
+    </div></div>
+    <div class="mt-3"><div class="card-x "><div class="card-x-head">
+    <div><h2>Account</h2></div>
+    <div class="d-flex gap-2 align-items-center"></div>
+  </div><div class="card-x-body">
+      <div class="d-flex justify-content-between mb-2"><span class="text-muted">Lifetime treatment value</span><span class="fw-semibold">$6,940</span></div>
+      <div class="d-flex justify-content-between mb-2"><span class="text-muted">Outstanding balance</span><span class="fw-semibold text-success">$0.00</span></div>
+      <div class="d-flex justify-content-between mb-3"><span class="text-muted">Insurance remaining</span><span class="fw-semibold">$820 of $1,500</span></div>
+      <div class="stat-bar mb-1"><span style="width:45%"></span></div>
+      <div class="text-muted" style="font-size:11.5px">Benefit year resets 01 Jan 2027</div>
+    </div></div></div>
+  </div>
+
+  <div class="col-xl-8">
+    <ul class="nav nav-tabs mb-3">
+      <li class="nav-item"><a class="nav-link active" href="#tl" data-bs-toggle="tab">Timeline</a></li>
+      <li class="nav-item"><a class="nav-link" href="#ap" data-bs-toggle="tab">Appointments</a></li>
+      <li class="nav-item"><a class="nav-link" href="#md" data-bs-toggle="tab">Medical</a></li>
+      <li class="nav-item" data-roles="Admin,Receptionist"><a class="nav-link" href="#iv" data-bs-toggle="tab">Invoices</a></li>
+      <li class="nav-item"><a class="nav-link" href="#fl" data-bs-toggle="tab">Files</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div class="tab-pane fade show active" id="tl">
+        <div class="card-x "><div class="card-x-head">
+    <div><h2>Clinical &amp; account history</h2></div>
+    <div class="d-flex gap-2 align-items-center"></div>
+  </div><div class="card-x-body">
+          <div class="tl">
+            <div class="tl-item"><span class="dot"></span><div class="tl-t">Composite filling — #26 occlusal</div>
+              <div class="tl-m">Today 09:30 · Dr. Luca Bianchi · in progress</div></div>
+            <div class="tl-item"><span class="dot"></span><div class="tl-t">Treatment plan approved — 3 phases, $1,240</div>
+              <div class="tl-m">12 Aug 2026 · Dr. Luca Bianchi · consent signed</div></div>
+            <div class="tl-item"><span class="dot"></span><div class="tl-t">Payment received — $310 (card)</div>
+              <div class="tl-m">12 Feb 2026 · Priya Nair · INV-2201</div></div>
+            <div class="tl-item"><span class="dot"></span><div class="tl-t">Scale &amp; polish + bitewing radiographs</div>
+              <div class="tl-m">12 Feb 2026 · M. Adeyemi, RDH</div></div>
+            <div class="tl-item"><span class="dot"></span><div class="tl-t">Extraction — #38 (impacted)</div>
+              <div class="tl-m">03 Sep 2025 · Dr. Amara Okafor</div></div>
+            <div class="tl-item"><span class="dot"></span><div class="tl-t">Patient registered</div>
+              <div class="tl-m">04 Jan 2021 · reception</div></div>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="tab-pane fade" id="ap">
+        <div class="card-x "><div class="card-x-head">
+    <div><h2>Appointments</h2></div>
+    <div class="d-flex gap-2 align-items-center flex-wrap"><a class="btn btn-brand btn-sm" href="appointments-create.html"><i class="bi bi-calendar-plus me-1"></i>Book</a></div>
+  </div><div class="table-responsive">
+  <table class="table table-x ">
+    <thead><tr><th>Date</th><th>Time</th><th>Procedure</th><th>Dentist</th><th>Status</th><th></th></tr></thead>
+    <tbody><tr><td>14 Aug 2026</td><td>09:30</td><td>Composite filling #26</td><td>Dr. Bianchi</td><td><span class="pill pill-green"><i class="bi bi-circle-fill"></i>In chair</span></td><td class="text-end"><a class="btn btn-soft btn-sm" href="appointments-reschedule.html">Manage</a></td></tr><tr><td>28 Aug 2026</td><td>14:00</td><td>Composite filling #27</td><td>Dr. Bianchi</td><td><span class="pill pill-blue"><i class="bi bi-circle-fill"></i>Scheduled</span></td><td class="text-end"><a class="btn btn-soft btn-sm" href="appointments-reschedule.html">Manage</a></td></tr><tr><td>12 Feb 2026</td><td>11:15</td><td>Scale &amp; polish</td><td>M. Adeyemi</td><td><span class="pill pill-gray"><i class="bi bi-circle-fill"></i>Completed</span></td><td class="text-end"><a class="btn btn-soft btn-sm" href="#">View</a></td></tr><tr><td>19 Nov 2025</td><td>16:00</td><td>Check-up</td><td>Dr. Bianchi</td><td><span class="pill pill-red"><i class="bi bi-circle-fill"></i>No-show</span></td><td class="text-end"><a class="btn btn-soft btn-sm" href="#">View</a></td></tr></tbody>
+  </table>
+</div></div>
+      </div>
+
+      <div class="tab-pane fade" id="md">
+        <div class="card-x "><div class="card-x-head">
+    <div><h2>Medical history</h2></div>
+    <div class="d-flex gap-2 align-items-center"><button class="btn btn-soft btn-sm" data-roles="Admin,Dentist"><i class="bi bi-pencil me-1"></i>Update history</button></div>
+  </div><div class="card-x-body">
+          <div class="alert alert-danger py-2 px-3 small"><i class="bi bi-exclamation-triangle-fill me-1"></i>
+            <strong>Allergies:</strong> Penicillin (rash, 2016), latex (mild).</div>
+          <div class="row">
+            <div class="col-md-6"><dl class="dl-x">
+              <dt>Conditions</dt><dd>Hypertension — controlled</dd>
+              <dt>Current medication</dt><dd>Amlodipine 5 mg daily</dd>
+              <dt>Smoking</dt><dd>Ex-smoker, quit 2019</dd>
+            </dl></div>
+            <div class="col-md-6"><dl class="dl-x">
+              <dt>Pregnancy</dt><dd>N/A</dd>
+              <dt>Anticoagulants</dt><dd>None</dd>
+              <dt>Last reviewed</dt><dd>12 Aug 2026 by Dr. Bianchi</dd>
+            </dl></div>
+          </div>
+          <div class="section-title">Notes</div>
+          <p class="text-muted small mb-0">Marked dental anxiety — prefers morning appointments and a longer chair slot. Responds well to topical anaesthetic before injection.</p>
+        </div></div>
+      </div>
+
+      <div class="tab-pane fade" id="iv">
+        <div class="card-x "><div class="card-x-head">
+    <div><h2>Invoices</h2></div>
+    <div class="d-flex gap-2 align-items-center flex-wrap"><a class="btn btn-brand btn-sm" href="billing-invoice-create.html">New invoice</a></div>
+  </div><div class="table-responsive">
+  <table class="table table-x ">
+    <thead><tr><th>Invoice</th><th>Date</th><th>Amount</th><th>Paid</th><th>Balance</th><th>Status</th><th></th></tr></thead>
+    <tbody><tr><td class="fw-semibold"><a href="billing-invoice-details.html">INV-2478</a></td><td>12 Aug 2026</td><td>$310.00</td><td>$310.00</td><td>$0.00</td><td><span class="pill pill-green"><i class="bi bi-circle-fill"></i>Paid</span></td><td class="text-end"><a class="btn btn-soft btn-sm" href="billing-invoice-details.html">View</a></td></tr><tr><td class="fw-semibold"><a href="billing-invoice-details.html">INV-2201</a></td><td>12 Feb 2026</td><td>$185.00</td><td>$185.00</td><td>$0.00</td><td><span class="pill pill-green"><i class="bi bi-circle-fill"></i>Paid</span></td><td class="text-end"><a class="btn btn-soft btn-sm" href="billing-invoice-details.html">View</a></td></tr><tr><td class="fw-semibold"><a href="billing-invoice-details.html">INV-1988</a></td><td>03 Sep 2025</td><td>$640.00</td><td>$640.00</td><td>$0.00</td><td><span class="pill pill-green"><i class="bi bi-circle-fill"></i>Paid</span></td><td class="text-end"><a class="btn btn-soft btn-sm" href="billing-invoice-details.html">View</a></td></tr></tbody>
+  </table>
+</div></div>
+      </div>
+
+      <div class="tab-pane fade" id="fl">
+        <div class="card-x "><div class="card-x-head">
+    <div><h2>Files &amp; radiographs</h2></div>
+    <div class="d-flex gap-2 align-items-center"></div>
+  </div><div class="card-x-body">
+          <div class="row g-3">
+            <div class="col-6 col-md-3"><div class="p-3 rounded text-center" style="border:1px solid var(--line)">
+              <i class="bi bi-file-earmark-image text-secondary" style="font-size:26px"></i>
+              <div class="small fw-semibold mt-2">Bitewing L</div><div class="text-muted" style="font-size:11px">12 Feb 2026</div></div></div>
+            <div class="col-6 col-md-3"><div class="p-3 rounded text-center" style="border:1px solid var(--line)">
+              <i class="bi bi-file-earmark-image text-secondary" style="font-size:26px"></i>
+              <div class="small fw-semibold mt-2">Bitewing R</div><div class="text-muted" style="font-size:11px">12 Feb 2026</div></div></div>
+            <div class="col-6 col-md-3"><div class="p-3 rounded text-center" style="border:1px solid var(--line)">
+              <i class="bi bi-file-earmark-pdf text-secondary" style="font-size:26px"></i>
+              <div class="small fw-semibold mt-2">Consent form</div><div class="text-muted" style="font-size:11px">12 Aug 2026</div></div></div>
+            <div class="col-6 col-md-3"><div class="p-3 rounded text-center" style="border:1.5px dashed var(--line);background:#fbfdfe">
+              <i class="bi bi-plus-lg text-muted" style="font-size:26px"></i>
+              <div class="small fw-semibold mt-2">Upload</div><div class="text-muted" style="font-size:11px">PDF, JPG, DICOM</div></div></div>
+          </div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    </main>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>
